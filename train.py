@@ -199,6 +199,10 @@ def main_train(device, model_name, mask_name, mask_perc):
             # good-->bad
             X_bad = torch.from_numpy(to_bad_img(X_good.numpy(), mask))
 
+            # x_good : [n, h, w, ?]
+            # mask : [h, w]
+            # x_bad : [n, h, w, 1]
+
             # cpu-->gpu
             X_good = X_good.to(device)
             X_bad = X_bad.to(device)
